@@ -37,5 +37,25 @@ The following are in lower priority than the above.
  3) Spring WebFlux
  4) Swagger for API documentation
  
- Due to time constraint, I haven't complete a few important non-functional feature such as security using OAuth2, 
- exception handling, logging, load balance etc. 
+ ## Instruction to run the application
+ 
+ 1) checkout the customer-service application from github
+ 2) run maven command: mvn spring-boot:run
+ 3) the account service api will be available under http://localhost:8080/
+ 
+ The initial prototyping phase is focus on 2 APIs listed below for the account service. The transaction service will 
+ provide another endpoints for account transactions. 
+ 
+ 1) accept a request to open accounts of existing customers. API will do the following:
+    - Accepts the user request with sufficient information to open an account
+    - Create a transaction for the user if initial credit is not zero
+    - Invalid request will send back to the user if customer does not exist within the system
+    - The authentication and authorisation should be implemented. However, due to the time constraint, 
+    it will be implemented in the next iteration
+ 2) output the user information showing Name, Surname, balance,and transactions of the accounts.
+ API documentation can be checked at the following URL (http://localhost:8080/swagger-ui.html#/) once you have it up and running.  
+  
+ 
+ Please Note that this is initial prototyping stage, there are some development items still required to be completed such as
+ exception and error status handling, security and messaging service between transaction service and account service. 
+ 
